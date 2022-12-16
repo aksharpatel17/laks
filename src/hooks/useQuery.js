@@ -1,34 +1,36 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
+import {DEFAULT_SQL_QUERY} from "../utils/defaults";
+
 
 export default function useQuery(query) {
-    const [results, setResults] = useState([]);
-    const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        // TODO: Add real AJAX Call
-        // TODO: Result should have X axis and Y axis labels
-        if (!query)
-            return () => {}
-        setLoading(true);
-        const t = setTimeout(() => {
-            const values = [];
-            for (let i = 0 ; i < 10; i++) {
-                values.push({
-                    name: `Point ${i}`,
-                uv: Number(Math.random() * 100)
-                }
-                )
-            }
-            setResults(values)
-            setLoading(false)
-        }, 3000)
-        return () => {
-            clearTimeout(t);
-        }
-    }, [query])
+  useEffect(() => {
+    if (!query) query = DEFAULT_SQL_QUERY;
+    setLoading(true);
+    const t = fetch(
+      "https://2hiz3fpmurkgsv72leev3agoma0woxry.lambda-url.ca-central-1.on.aws/",
+      {
+        method: "POST",
+        body: JSON.stringify({ query }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const mappedData = data.rows.map((dataInstance) => ({
+          name: dataInstance.issuing_agency,
+          uv: dataInstance.count,
+        }));
+        setResults(mappedData);
+        setLoading(false);
+      });
+    return () => {};
+  }, [query]);
 
-    return {
-        results,
-        loading
-    }
+  return {
+    results,
+    loading,
+  };
 }

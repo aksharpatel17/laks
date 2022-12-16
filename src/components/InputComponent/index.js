@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import FormControl from "react-bootstrap/FormControl";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {DEFAULT_SQL_QUERY} from "../../utils/defaults";
 
 
 export default function InputComponent ({handleQuery}) {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState(DEFAULT_SQL_QUERY);
     return (<div>
         <form onSubmit={(e) => {
             e.preventDefault();
