@@ -13,7 +13,7 @@ function App() {
   const { results, loading } = useQuery(query);
 
   return (
-    <Container style={{ height: "100vh" }}>
+    <Container style={{ height: "100vh", backgroundColor: "lightblue" }}>
       <InputComponent handleQuery={handleQuery} />
       {query ? !loading ? <Chart data={results} /> : "Loading" : ""}
     </Container>
