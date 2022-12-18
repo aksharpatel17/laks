@@ -1,5 +1,5 @@
 import { BarChart, CartesianGrid, XAxis, YAxis, Bar, Label } from "recharts";
-export default function Chart({ data }) {
+export default function Chart({ data, keys }) {
   return (
     <BarChart
       width={720}
@@ -10,9 +10,9 @@ export default function Chart({ data }) {
     >
       <CartesianGrid strokeDasharray="12 12" />
       <XAxis dataKey="name">
-        <Label value={"Issuing Agency"} position={"bottom"} />
+        <Label value={keys[0]} position={"bottom"} />
       </XAxis>
-      <YAxis label={{ value: "Count", angle: -90, position: "left" }} />
+      <YAxis label={{ value: keys[1], angle: -90, position: "left" }} />
       <Bar dataKey="uv" />
     </BarChart>
   );

@@ -10,12 +10,12 @@ function App() {
     setQuery(q);
   }
 
-  const { results, loading } = useQuery(query);
+  const { results, loading, key_values } = useQuery(query);
 
   return (
     <Container style={{ height: "100vh", backgroundColor: "lightblue" }}>
       <InputComponent handleQuery={handleQuery} />
-      {query ? !loading ? <Chart data={results} /> : "Loading" : ""}
+      {query ? !loading ? <Chart data={results} keys = {key_values} /> : "Loading" : ""}
     </Container>
   );
 }
