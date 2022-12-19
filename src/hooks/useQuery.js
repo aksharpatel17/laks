@@ -13,7 +13,6 @@ export default function useQuery(query) {
     setLoading(true);
     const t = fetch(
       "https://2hiz3fpmurkgsv72leev3agoma0woxry.lambda-url.ca-central-1.on.aws/",
-      // "https://4w12s32b0g.execute-api.ca-central-1.amazonaws.com/default/issuerQuery",
       {
         method: "POST",
         body: JSON.stringify({ query }),
@@ -22,6 +21,7 @@ export default function useQuery(query) {
       .then((response) => response.json())
       .then((data) => {
         var keys = Object.keys(data.rows[0]);
+        console.log(data.rows);
         setKeyValues(keys)
         const mappedData = data.rows.map((dataInstance) => (
           

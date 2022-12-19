@@ -23,7 +23,7 @@ export default function InputComponent({ handleQuery }) {
                 <Col className="white mt-4 pt-1" md={3}>
                 </Col>
                 <Col md={8}>
-                    <Button type="submit" className={"mt-3 mb-4 ttu"}>Submit</Button>
+                    <Button type="submit" className={"mt-3 mb-4 ttu btn-success"}>Submit</Button>
                 </Col>
             </Row>
         </form>
