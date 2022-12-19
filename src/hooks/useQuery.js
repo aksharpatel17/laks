@@ -28,7 +28,7 @@ export default function useQuery(query) {
           {
          
           name: dataInstance[keys[0]],
-          uv: dataInstance[keys[1]] ,
+          count: dataInstance[keys[1]],
         }));
         setResults(mappedData);
         setLoading(false);

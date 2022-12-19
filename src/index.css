@@ -1,3 +1,11 @@
+*{
+  background-color: black;
+}
+
+.row {
+  --bs-gutter-x: 0rem !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +19,54 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container{
+  text-align: center;
+  max-width: 1000px !important;
+}
+
+.white{
+  color: white;
+  font-size: 16.5px;
+  font-weight: bold;
+}
+
+.placeholder{
+  background-color: transparent !important;
+  color: white !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  text-transform: uppercase;
+}
+
+.avatar{
+  height: 52px;
+  width: 100px;
+  margin: 13px 15px 13px 70px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.underline{
+  border-bottom: 1px solid white;
+  margin-bottom: 8px; 
+}
+.underline1{
+  border-right: 1px solid white;
+}
+
+.text{
+  color: white;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 14px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.ttu{
+  text-transform: uppercase;
+  
+} 
